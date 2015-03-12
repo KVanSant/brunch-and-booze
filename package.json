@@ -1,12 +1,12 @@
 {
-  "name": "base-frontend-project",
+  "name": "brunch-and-booze",
   "version": "0.0.1",
-  "description": "Bloc skeleton project for a single page application",
+  "description": "Food and drink pairing app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Bloc and Nick Ferraro",
+  "author": "Kristopher Van Sant",
   "license": "ISC",
   "dependencies": {
     "hapi": "^7.5.0",
