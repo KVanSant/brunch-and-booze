@@ -8,6 +8,13 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
     controller: 'HomeCtrl',
     templateUrl: '/templates/home.html'
   });
+
+  $stateProvider.state('recipes', {
+    url: '/recipes',
+    controller: 'RecipesCtrl',
+    templateUrl: 'templates/recipes.html'
+  })
+
 }]);
 
 
@@ -122,7 +129,13 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
 
 }]);
 
+brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
+  $scope.brunchList = Arrays.brunchItems;
+  $scope.boozeList = Arrays.boozeItems;
+  $scope.pairingList = Arrays.pairingItems;
 
+
+}]);
 
 brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
   var ref = new Firebase("https://brunch-and-booze.firebaseio.com/");

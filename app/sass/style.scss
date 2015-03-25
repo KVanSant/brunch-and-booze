@@ -1,3 +1,7 @@
+body {
+  font-family: 'Cabin', sans-serif;
+}
+
 nav {
   text-align: center;
   font-size: 16px;  
@@ -10,7 +14,6 @@ nav a {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   color: black;
-  font-family: 'Cabin', sans-serif;
   font-weight: 300;
 }
 
@@ -36,7 +39,6 @@ h1 {
 
 p {
   text-align: center;
-  font-family: 'Cabin', sans-serif;
   font-size: 24px;
   font-weight: 100;
   line-height: 135%;
@@ -54,6 +56,10 @@ input {
   margin-top: 10px;
 }
 
+input[type="text"]{
+  font-family: 'Cabin', sans-serif;
+}
+
 .brunchContainer {
   display: inline-block;
 }
@@ -62,4 +68,14 @@ input {
 .boozeContainer {
   display: inline-block;
   float: right;
+}
+
+
+/***************
+All Recipes List
+***************/
+
+.item {
+  list-style: none;
+
 }
