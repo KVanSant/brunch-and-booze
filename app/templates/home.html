@@ -10,9 +10,10 @@
     <i class="fa fa-glass fa-5x booze"></i>
   </div>
   <div class="input">
-    <input type="text" class="brunchinput" ng-model="name">
-    <button ng-click="searchBrunch(name)"></button>
-    <input type="text" class="boozeinput">
+    <input type="text" class="brunchinput" ng-model="foodName">
+    <button ng-click="searchBrunch(foodName)"></button>
+    <input type="text" class="boozeinput" ng-model="drinkName">
+    <button ng-click="searchBooze(drinkName)" style="border-color: red"></button>
   </div>    
 </div>
 <div>
@@ -23,9 +24,9 @@
   </table>
 </div>
 <div>
-  <table ng-repeat="brunchs in brunchList">
+  <table ng-repeat="pairs in thePairedFoods">
     <tr>
-      <td>{{brunch.name}}</td>
+      <td>{{pairs.name}}</td>
     </tr>
   </table>
 </div>
