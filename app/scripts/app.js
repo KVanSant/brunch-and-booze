@@ -83,8 +83,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
             $scope.boozeItemID = $scope.boozeList[i]["$id"];
             $scope.theBoozeItem.push($scope.boozeList[i]);
             $scope.drinkName = " ";
-            
-          }   
+          }
         };
 
         //using UID of brunch item, list all associated pairings and put into array
