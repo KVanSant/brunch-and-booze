@@ -28,10 +28,10 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
     $scope.brunchList.$loaded(
       function() {
         for (var i = 0; i < $scope.brunchList.length; i++) {
-          if ($scope.brunchList[i].name == userInput) {
+          if ($scope.brunchList[i].name.toLowerCase() == userInput.toLowerCase()) {
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
-            $scope.name = " ";
+            $scope.foodName = " ";
           }   
         };
 
@@ -79,10 +79,10 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
     $scope.boozeList.$loaded(
       function() {
         for (var i = 0; i < $scope.boozeList.length; i++) {
-          if ($scope.boozeList[i].name == userInput) {
+          if ($scope.boozeList[i].name.toLowerCase() == userInput.toLowerCase()) {
             $scope.boozeItemID = $scope.boozeList[i]["$id"];
             $scope.theBoozeItem.push($scope.boozeList[i]);
-            $scope.foodName = " ";
+            $scope.drinkName = " ";
             
           }   
         };
