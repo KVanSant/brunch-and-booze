@@ -5,28 +5,34 @@
   </div>
 </div>
 <div class="search">
-  <div class="images">
+  <div class="brunchContainer">
     <i class="fa fa-cutlery fa-5x brunch"></i>
-    <i class="fa fa-glass fa-5x booze"></i>
-  </div>
-  <div class="input">
     <input type="text" class="brunchinput" ng-model="foodName">
     <button ng-click="searchBrunch(foodName)"></button>
+    <div>
+      <table ng-repeat="pairs in thePairedDrinks">
+        <tr>
+          <td>{{pairs.name}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="boozeContainer">
+    <i class="fa fa-glass fa-5x booze"></i>
+
     <input type="text" class="boozeinput" ng-model="drinkName">
-    <button ng-click="searchBooze(drinkName)" style="border-color: red"></button>
-  </div>    
+    <button ng-click="searchBooze(drinkName)"></button>
+    <div>
+      <table ng-repeat="pairs in thePairedFoods">
+        <tr>
+          <td>{{pairs.name}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
-<div>
-  <table ng-repeat="pairs in thePairedDrinks">
-    <tr>
-      <td>{{pairs.name}}</td>
-    </tr>
-  </table>
-</div>
-<div>
-  <table ng-repeat="pairs in thePairedFoods">
-    <tr>
-      <td>{{pairs.name}}</td>
-    </tr>
-  </table>
-</div>
+
+
+ 
+
+
