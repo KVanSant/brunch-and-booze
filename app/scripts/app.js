@@ -21,12 +21,15 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
     function() {
 
       $scope.searchBrunch = function(userInput) {
+        $scope.theBrunchItem = [];
+        $scope.drinkMatches = [];
+        $scope.foundPairings = [];
+        $scope.thePairedDrinks = [];
 
         //get UID of queried brunch item
         for (var i = 0; i < $scope.brunchList.length; i++) {
           if ($scope.brunchList[i].name == userInput) {
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
-            $scope.theBrunchItem = [];
             $scope.theBrunchItem.push($scope.brunchList[i]);
           }   
         };
@@ -36,44 +39,34 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
           function() {  
             for (var i = 0; i < $scope.pairingList.length; i++) {
               if ($scope.pairingList[i].brunchItem == $scope.brunchItemID) {
-                $scope.foundPairings = [];
                 $scope.foundPairings.push($scope.pairingList[i]);
-                console.log($scope.foundPairings);
               };
             };
          
-
+            
             //get UIDs of all the drinks that pair with brunch item
             for (var i = 0; i < $scope.foundPairings.length; i++) {
-              $scope.drinkMatches = [];
               $scope.drinkMatches.push($scope.foundPairings[i].boozeItem);
-              console.log($scope.drinkMatches);
             };
          
 
-
-          // get the information for all the drinks that pair with brunch item
-          $scope.boozeList.$loaded(
-            function() {  
-              for (i = 0; i < $scope.drinkMatches.length; i++) {
-                for (j = 0; j < $scope.boozeList.length; j++){
-                  if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {
-                    $scope.thePairedDrinks = [];
-                    $scope.thePairedDrinks.push($scope.boozeList[j]);
-                    console.log($scope.thePairedDrinks);
-                  };
+            // get the information for all the drinks that pair with brunch item
+            $scope.boozeList.$loaded(
+              function() {  
+                for (i = 0; i < $scope.drinkMatches.length; i++) {
+                  for (j = 0; j < $scope.boozeList.length; j++){
+                    if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {               
+                      $scope.thePairedDrinks.push($scope.boozeList[j]);
+                    };
+                  }
                 }
               }
-            }
-          )
-        }
-      );
-   
-
+            )
+          }
+        );
       }
     }
   );
-
 }]);
 
 
