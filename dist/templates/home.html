@@ -1,0 +1,39 @@
+<div>
+  <h1>Brunch &Booze</h1>
+  <div class="textbox">
+    <p>Find food and drink pairings for the tastiest brunch ever! Simply search for a food or drink item to see a list of suggested pairings.</p>
+  </div>
+</div>
+<div class="search">
+  <div class="brunchContainer">
+    <i class="fa fa-cutlery fa-5x brunch"></i>
+    <form ng-submit="searchBrunch(foodName)" >
+      <input type="text" class="brunchInput" ng-model="foodName">
+    </form>
+    <div>
+      <table ng-repeat="pairs in thePairedDrinks">
+        <tr>
+          <td>{{pairs.name}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="boozeContainer" ng-hide"selected">
+    <i class="fa fa-glass fa-5x booze"></i>
+    <form ng-submit="searchBooze(drinkName)">
+      <input type="text" class="boozeInput" ng-model="drinkName">
+    </form>
+    <div>
+      <table ng-repeat="pairs in thePairedFoods">
+        <tr>
+          <td>{{pairs.name}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
