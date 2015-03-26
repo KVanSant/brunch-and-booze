@@ -12,7 +12,11 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
   $stateProvider.state('recipes', {
     url: '/recipes',
     controller: 'RecipesCtrl',
-    templateUrl: 'templates/recipes.html'
+    templateUrl: '/templates/recipes.html'
+  })
+
+  $stateProvider.state('account', {
+
   })
 
 }]);
