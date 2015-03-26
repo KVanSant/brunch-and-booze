@@ -8,6 +8,17 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
     controller: 'HomeCtrl',
     templateUrl: '/templates/home.html'
   });
+
+  $stateProvider.state('recipes', {
+    url: '/recipes',
+    controller: 'RecipesCtrl',
+    templateUrl: '/templates/recipes.html'
+  })
+
+  $stateProvider.state('account', {
+
+  })
+
 }]);
 
 
@@ -83,8 +94,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
             $scope.boozeItemID = $scope.boozeList[i]["$id"];
             $scope.theBoozeItem.push($scope.boozeList[i]);
             $scope.drinkName = " ";
-            
-          }   
+          }
         };
 
         //using UID of brunch item, list all associated pairings and put into array
@@ -123,7 +133,13 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
 
 }]);
 
+brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
+  $scope.brunchList = Arrays.brunchItems;
+  $scope.boozeList = Arrays.boozeItems;
+  $scope.pairingList = Arrays.pairingItems;
 
+
+}]);
 
 brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
   var ref = new Firebase("https://brunch-and-booze.firebaseio.com/");

@@ -7,8 +7,9 @@
 <div class="search">
   <div class="brunchContainer">
     <i class="fa fa-cutlery fa-5x brunch"></i>
-    <input type="text" class="brunchinput" ng-model="foodName">
-    <button ng-click="searchBrunch(foodName)"></button>
+    <form ng-submit="searchBrunch(foodName)" >
+      <input type="text" class="brunchInput" ng-model="foodName">
+    </form>
     <div>
       <table ng-repeat="pairs in thePairedDrinks">
         <tr>
@@ -17,11 +18,11 @@
       </table>
     </div>
   </div>
-  <div class="boozeContainer">
+  <div class="boozeContainer" ng-hide"selected">
     <i class="fa fa-glass fa-5x booze"></i>
-
-    <input type="text" class="boozeinput" ng-model="drinkName">
-    <button ng-click="searchBooze(drinkName)"></button>
+    <form ng-submit="searchBooze(drinkName)">
+      <input type="text" class="boozeInput" ng-model="drinkName">
+    </form>
     <div>
       <table ng-repeat="pairs in thePairedFoods">
         <tr>
