@@ -16,17 +16,17 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
     templateUrl: '/templates/recipes.html'
   });
 
-  $stateProvider.state('pairings', {
-    url: '/pairings',
-    controller: 'PairingsCtrl',
-    templateUrl: '/templates/pairings.html'
+  $stateProvider.state('admin', {
+    url: '/admin',
+    controller: 'AdminCtrl',
+    templateUrl: '/templates/admin.html'
   });
-  
+
 
 }]);
 
 
-brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope, Arrays, $location) {
+brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope, Arrays, $location) { 
   $scope.brunchList = Arrays.brunchItems;
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
@@ -38,7 +38,8 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope,
     $scope.drinkMatches = [];
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
-    $location.path('/pairings')
+    
+    
 
     //get UID of queried brunch item
     $scope.brunchList.$loaded(
@@ -83,6 +84,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope,
         )
       }
     );
+
   };
 
 
@@ -147,13 +149,19 @@ brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
 
 }]);
 
-brunch.controller('PairingsCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
+brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.brunchList = Arrays.brunchItems;
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
-  
 
-
+  $scope.addBrunch = function(name, img, ingredients, instructions) {
+    $scope.brunchList.$add({
+      name: name,
+      image: img,
+      ingredients: ingredients,
+      instructions: instructions
+    });
+  }
 
 
 }]);
