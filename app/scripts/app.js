@@ -13,27 +13,31 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
     url: '/recipes',
     controller: 'RecipesCtrl',
     templateUrl: '/templates/recipes.html'
-  })
+  });
 
-  $stateProvider.state('account', {
-
-  })
+  $stateProvider.state('pairings', {
+    url: '/pairings',
+    controller: 'PairingsCtrl',
+    templateUrl: '/templates/pairings.html'
+  });
+  
 
 }]);
 
 
-brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
+brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope, Arrays, $location) {
   $scope.brunchList = Arrays.brunchItems;
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
  
+
 
   $scope.searchBrunch = function(userInput) {
     $scope.theBrunchItem = [];
     $scope.drinkMatches = [];
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
-
+    $location.path('/pairings')
 
     //get UID of queried brunch item
     $scope.brunchList.$loaded(
@@ -43,7 +47,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
             $scope.foodName = " ";
-          }   
+          } 
         };
 
         //using UID of brunch item, list all associated pairings and put into array
@@ -79,6 +83,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
       }
     );
   };
+
 
   $scope.searchBooze = function(userInput) {
       $scope.theBoozeItem = [];
@@ -141,6 +146,18 @@ brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
 
 }]);
 
+brunch.controller('PairingsCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
+  $scope.brunchList = Arrays.brunchItems;
+  $scope.boozeList = Arrays.boozeItems;
+  $scope.pairingList = Arrays.pairingItems;
+  
+
+
+
+
+}]);
+
+
 brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
   var ref = new Firebase("https://brunch-and-booze.firebaseio.com/");
 
@@ -154,3 +171,5 @@ brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
   
     }  
 }]);
+
+

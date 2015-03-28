@@ -10,14 +10,7 @@
     <form ng-submit="searchBrunch(foodName)" >
       <input type="text" class="brunchInput" ng-model="foodName">
     </form>
-    <div>
-      <table ng-repeat="pairs in thePairedDrinks">
-        <tr>
-          <td>{{pairs.name}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
+   </div>
   <div class="boozeContainer" ng-hide"selected">
     <i class="fa fa-glass fa-5x booze"></i>
     <form ng-submit="searchBooze(drinkName)">
