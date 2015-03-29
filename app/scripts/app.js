@@ -153,12 +153,13 @@ brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
 
-  $scope.addBrunch = function(name, img, ingredients, instructions) {
+  $scope.addBrunch = function(name, image, ingredients, instructions, category) {
     $scope.brunchList.$add({
       name: name,
-      image: img,
+      image: image,
       ingredients: ingredients,
-      instructions: instructions
+      instructions: instructions,
+      category: category
     });
   }
 
