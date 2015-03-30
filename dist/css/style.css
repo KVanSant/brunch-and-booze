@@ -1,5 +1,6 @@
 body {
-  font-family: 'Cabin', sans-serif; }
+  font-family: 'Cabin', sans-serif;
+  overflow-y: hidden; }
 
 nav {
   text-align: center;

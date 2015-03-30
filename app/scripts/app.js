@@ -25,19 +25,20 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
 }]);
 
 
-brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope, Arrays, $location) { 
+brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll', function($scope, Arrays, $location, $anchorScroll) { 
   $scope.brunchList = Arrays.brunchItems;
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
- 
-
+    
+      
 
   $scope.searchBrunch = function(userInput) {
     $scope.theBrunchItem = [];
     $scope.drinkMatches = [];
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
-    
+    $scope.thePairedFoods = [];
+   
     
 
     //get UID of queried brunch item
@@ -47,7 +48,8 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope,
           if ($scope.brunchList[i].name.toLowerCase() == userInput.toLowerCase()) {
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
-            $scope.foodName = " ";
+            $scope.foodName = " "; 
+           
           } 
         };
 
@@ -92,6 +94,9 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope,
       $scope.foodMatches = [];
       $scope.foundFoodPairings = [];
       $scope.thePairedFoods = [];
+      $scope.thePairedDrinks = [];
+
+
 
       //get UID of queried brunch item
     $scope.boozeList.$loaded(
@@ -101,6 +106,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', function($scope,
             $scope.boozeItemID = $scope.boozeList[i]["$id"];
             $scope.theBoozeItem.push($scope.boozeList[i]);
             $scope.drinkName = " ";
+            
           }
         };
 
@@ -199,7 +205,6 @@ brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
           category: category
         });
        }
-  
     }  
 }]);
 
