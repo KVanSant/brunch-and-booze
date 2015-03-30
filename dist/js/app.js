@@ -154,22 +154,24 @@ brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
 
-  $scope.addBrunch = function(name, image, ingredients, instructions, category) {
-    $scope.brunchList.$add({
-      name: name,
-      image: image,
-      ingredients: ingredients,
-      instructions: instructions,
-      category: category
-    });
+  $scope.items = ['Brunch', 'Booze'];
+  $scope.selection = $scope.items[0];
+
+  $scope.createBrunch = function() {
+    Arrays.addFood($scope.name, $scope.image, $scope.ingredients, $scope.instructions, $scope.category);
   }
 
+  $scope.createBooze = function() {
+    Arrays.addDrink($scope.name, $scope.image, $scope.ingredients, $scope.instructions, $scope.category);
+  }
 
 }]);
 
 
 brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
   var ref = new Firebase("https://brunch-and-booze.firebaseio.com/");
+  var brunchRef = $firebaseArray(ref.child('brunch'));
+  var boozeRef = $firebaseArray(ref.child('booze'));
 
     return {
 
@@ -178,9 +180,36 @@ brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
       boozeItems: $firebaseArray(ref.child('booze')),
 
       pairingItems: $firebaseArray(ref.child('pairings')),
+
+      addFood: function(name, image, ingredients, instructions, category) {
+       brunchRef.$add({
+          name: name,
+          image: image,
+          ingredients: ingredients,
+          instructions: instructions,
+          category: category
+        });
+       },
+
+       addDrink: function(name, image, ingredients, instructions, category) {
+        boozeRef.$add({
+          name: name,
+          image: image,
+          ingredients: ingredients,
+          instructions: instructions,
+          category: category
+        });
+       }
   
     }  
 }]);
+
+
+
+
+
+
+
 
 
 
