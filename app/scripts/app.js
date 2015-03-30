@@ -143,12 +143,13 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
         )
       }
     );
-return $scope.show = true;
+  return $scope.show = true;
   };
 
   $scope.searchAgain = function() {
     return $scope.show = false;
   };
+  
 }]);
 
 brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
