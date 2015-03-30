@@ -1,43 +1,46 @@
-<div class="home">
-  <h1>Brunch &Booze</h1>
-  <div class="textbox">
-    <p>Find food and drink pairings for the tastiest brunch ever! Simply search for a food or drink item to see a list of suggested pairings.</p>
+<div ng-init="show == true">
+<div ng-hide="show" class="home" >
+  <div> 
+    <h1>Brunch &Booze</h1>
+    <div class="textbox">
+      <p>Find food and drink pairings for the tastiest brunch ever! Simply search for a food or drink item to see a list of suggested pairings.</p>
+    </div>
   </div>
-</div>
-<div class="search">
-  <div class="brunchContainer">
-    <i class="fa fa-cutlery fa-5x brunch"></i>
-    <form ng-submit="searchBrunch(foodName)" >
-      <input type="text" class="brunchInput" ng-model="foodName">
-    </form>
-  </div>  
-  <div class="boozeContainer">
-    <i class="fa fa-glass fa-5x booze"></i>
-    <form ng-submit="searchBooze(drinkName)">
-      <input type="text" class="boozeInput" ng-model="drinkName">
-    </form>
+  <div class="search">
+    <div class="brunchContainer">
+      <i class="fa fa-cutlery fa-5x brunch"></i>
+      <form ng-submit="searchBrunch(foodName)">
+        <input type="text" class="brunchInput" ng-model="foodName">
+      </form>
+    </div>  
+    <div class="boozeContainer">
+      <i class="fa fa-glass fa-5x booze"></i>
+      <form ng-submit="searchBooze(drinkName)">
+        <input type="text" class="boozeInput" ng-model="drinkName">
+      </form>
+    </div>
   </div>
 </div>
 
 
-<div class="pairings">
-  <div>
-    <table ng-repeat="pairs in thePairedDrinks">
+  <div ng-show="show">
+    <div>
+      <table ng-repeat="pairs in thePairedDrinks">
+          <tr>
+            <td>{{pairs.name}}</td>
+          </tr>
+      </table>
+    </div>
+    <div>
+      <table ng-repeat="pairs in thePairedFoods">
         <tr>
           <td>{{pairs.name}}</td>
         </tr>
-    </table>
+      </table>
+    </div>
+    <button ng-click="searchAgain()">Search again!</button>  
   </div>
-  <div>
-    <table ng-repeat="pairs in thePairedFoods">
-      <tr>
-        <td>{{pairs.name}}</td>
-      </tr>
-    </table>
-  </div>
-  <button>Search again!</button>
-</div>
 
- 
+
 
 

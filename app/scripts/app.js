@@ -49,7 +49,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
             $scope.foodName = " "; 
-           
+
           } 
         };
 
@@ -76,6 +76,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
                   for (j = 0; j < $scope.boozeList.length; j++){
                     if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {               
                       $scope.thePairedDrinks.push($scope.boozeList[j]);
+
                     }
                   }
                 }
@@ -85,7 +86,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
         )
       }
     );
-
+    return $scope.show = true;
   };
 
 
@@ -142,8 +143,12 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
         )
       }
     );
+return $scope.show = true;
   };
 
+  $scope.searchAgain = function() {
+    return $scope.show = false;
+  };
 }]);
 
 brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
@@ -169,6 +174,8 @@ brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.createBooze = function() {
     Arrays.addDrink($scope.name, $scope.image, $scope.ingredients, $scope.instructions, $scope.category);
   }
+
+
 
 }]);
 
