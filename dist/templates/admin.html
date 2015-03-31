@@ -1,0 +1,15 @@
+<div >
+  <form novalidate ng-switch on="selection">
+    Are you creating a new brunch item or a new booze item? <select ng-model="selection" ng-options="item for item in items">
+    </select> <br/>
+    Name: <input type="text" ng-model="name" /><br />
+    Image: <input type="" ng-model="image" /><br />
+    Ingredients: <input type="text" ng-model="ingredients" value="" /><br />
+    Instructions:  <input type="" ng-model="instructions" /><br />
+    Category: <input type="" ng-model="category" /><br />
+      <input type="button" ng-click="reset()" value="Reset" />
+      <input type="submit" ng-click="createBrunch()" value="Create Brunch Item" ng-switch-when="Brunch"/>
+      <input type="submit" ng-click="createBooze()" value="Create Booze Item" ng-switch-when="Booze"/>
+  </form>
+</div>
+

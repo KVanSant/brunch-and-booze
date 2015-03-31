@@ -50,8 +50,8 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
             $scope.foodName = " "; 
-
           } 
+      
         };
 
         //using UID of brunch item, list all associated pairings and put into array
@@ -77,7 +77,6 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
                   for (j = 0; j < $scope.boozeList.length; j++){
                     if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {               
                       $scope.thePairedDrinks.push($scope.boozeList[j]);
-
                     }
                   }
                 }
@@ -87,7 +86,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
         )
       }
     );
-    return $scope.show = true;
+   return $scope.show = true;
   };
 
 
