@@ -51,7 +51,6 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
             $scope.theBrunchItem.push($scope.brunchList[i]);
             $scope.foodName = " "; 
           } 
-
         };
 
         //using UID of brunch item, list all associated pairings and put into array
