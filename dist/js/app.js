@@ -51,7 +51,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
             $scope.theBrunchItem.push($scope.brunchList[i]);
             $scope.foodName = " "; 
           } 
-      
+
         };
 
         //using UID of brunch item, list all associated pairings and put into array
@@ -185,6 +185,7 @@ brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
   var ref = new Firebase("https://brunch-and-booze.firebaseio.com/");
   var brunchRef = $firebaseArray(ref.child('brunch'));
   var boozeRef = $firebaseArray(ref.child('booze'));
+
 
     return {
 

@@ -1,7 +1,7 @@
 body {
   font-family: 'Cabin', sans-serif;
-   overflow-y: hidden;
-}
+  
+  }
 
 nav {
   text-align: center;
@@ -9,6 +9,7 @@ nav {
   line-height: 16px;   
   padding: 30px 0 0 0;
   text-transform: uppercase;
+  
 }
 
 nav a {
@@ -23,12 +24,16 @@ nav a {
   letter-spacing: 0.1em;
 }
 
+/***************
+Landing and Search View
+***************/
+
+
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
   font-size: 630%;
-  word-spacing: -12px; 
-
+  word-spacing: -12px;
 }
 
 .textbox {
@@ -38,7 +43,7 @@ h1 {
   margin-right: auto;
 }
 
-p {
+.about {
   text-align: center;
   font-size: 24px;
   font-weight: 100;
@@ -69,6 +74,54 @@ input[type="text"]{
 .boozeContainer {
   display: inline-block;
   float: right;
+}
+
+
+
+
+/***************
+Found Pairings View
+***************/
+
+
+.pairings {
+  max-width: 650px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+
+.image {
+  margin-left: 265px;
+}
+
+
+.results {
+  text-align: center;
+}
+
+.tempImage {
+  display: block;
+  float: left;
+}
+
+.recipeInfo {
+  float: right;
+}
+
+.itemName {
+
+}
+
+.instructions{ 
+  font-size: 16px;
+  max-width: 500px;
+}
+
+.ingredients {
+  list-style: none;
 }
 
 
