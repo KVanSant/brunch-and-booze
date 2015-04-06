@@ -37,10 +37,12 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
     $scope.drinkMatches = [];
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
-    $scope.thePairedFoods = [];
+    $scope.thePairedFoods = [];  
+    $scope.boozeSearchName = true;
+    $scope.brunchSearchName = false;
+     var doesExist = false;
    
     
-
     //get UID of queried brunch item
     $scope.brunchList.$loaded(
       function() {
@@ -49,42 +51,52 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
             $scope.foodName = " "; 
+            doesExist = true;
           } 
         };
+        //if searched item does not exist show a message that item was not found  
+        if (doesExist == false) {
+          return $scope.notFound = true;
+        }
 
-        //using UID of brunch item, list all associated pairings and put into array
-        $scope.pairingList.$loaded(
-          function() {  
-            for (var i = 0; i < $scope.pairingList.length; i++) {
-              if ($scope.pairingList[i].brunchItem == $scope.brunchItemID) {
-                $scope.foundDrinkPairings.push($scope.pairingList[i]);
+        //if searched item does exit find pairing match
+        else  {
+        $scope.notFound = false;
+          //using UID of brunch item, list all associated pairings and put into array
+          $scope.pairingList.$loaded(
+            function() {  
+              for (var i = 0; i < $scope.pairingList.length; i++) {
+                if ($scope.pairingList[i].brunchItem == $scope.brunchItemID) {
+                  $scope.foundDrinkPairings.push($scope.pairingList[i]);
+                };
               };
-            };
-         
-            
-            //get UIDs of all the drinks that pair with brunch item
-            for (var i = 0; i < $scope.foundDrinkPairings.length; i++) {
-              $scope.drinkMatches.push($scope.foundDrinkPairings[i].boozeItem);
-            };
-         
+           
+              
+              //get UIDs of all the drinks that pair with brunch item
+              for (var i = 0; i < $scope.foundDrinkPairings.length; i++) {
+                $scope.drinkMatches.push($scope.foundDrinkPairings[i].boozeItem);
+              };
+           
 
-            // get the information for all the drinks that pair with brunch item
-            $scope.boozeList.$loaded(
-              function() {  
-                for (i = 0; i < $scope.drinkMatches.length; i++) {
-                  for (j = 0; j < $scope.boozeList.length; j++){
-                    if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {               
-                      $scope.thePairedDrinks.push($scope.boozeList[j]);
+              // get the information for all the drinks that pair with brunch item
+              $scope.boozeList.$loaded(
+                function() {  
+                  for (i = 0; i < $scope.drinkMatches.length; i++) {
+                    for (j = 0; j < $scope.boozeList.length; j++){
+                      if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {               
+                        $scope.thePairedDrinks.push($scope.boozeList[j]);
+                      }
                     }
                   }
                 }
-              }
-            )
-          }
-        )
+              )
+              return $scope.show = true;
+
+            }
+          );
+        }
       }
     );
-   return $scope.show = true;
   };
 
 
@@ -94,8 +106,10 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
       $scope.foundFoodPairings = [];
       $scope.thePairedFoods = [];
       $scope.thePairedDrinks = [];
-
-
+      $scope.brunchSearchName = true;
+      $scope.boozeSearchName = false;
+      var doesExist = false;
+     
 
       //get UID of queried brunch item
     $scope.boozeList.$loaded(
@@ -105,50 +119,66 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
             $scope.boozeItemID = $scope.boozeList[i]["$id"];
             $scope.theBoozeItem.push($scope.boozeList[i]);
             $scope.drinkName = " ";
-            
+            doesExist = true;
           }
         };
 
-        //using UID of brunch item, list all associated pairings and put into array
-        $scope.pairingList.$loaded(
-          function() {  
-            for (var i = 0; i < $scope.pairingList.length; i++) {
-              if ($scope.pairingList[i].boozeItem == $scope.boozeItemID) {
-                $scope.foundFoodPairings.push($scope.pairingList[i]);            
-              };
-            };
-         
-            
-            //get UIDs of all the drinks that pair with brunch item
-            for (var i = 0; i < $scope.foundFoodPairings.length; i++) {
-              $scope.foodMatches.push($scope.foundFoodPairings[i].brunchItem);
-            };
-         
+        //if searched item does not exist show a message that item was not found  
+        if (doesExist == false) {
+          return $scope.notFound = true;
+        }
 
-            // get the information for all the drinks that pair with brunch item
-            $scope.brunchList.$loaded(
-              function() {  
-                for (i = 0; i < $scope.foodMatches.length; i++) {
-                  for (j = 0; j < $scope.brunchList.length; j++){
-                    if($scope.foodMatches[i] == $scope.brunchList[j]["$id"]) {               
-                      $scope.thePairedFoods.push($scope.brunchList[j]);
+        //if searched item does exit find pairing match
+        else {  
+          $scope.notFound = false;
+          //using UID of brunch item, list all associated pairings and put into array
+          $scope.pairingList.$loaded(
+            function() {  
+              for (var i = 0; i < $scope.pairingList.length; i++) {
+                if ($scope.pairingList[i].boozeItem == $scope.boozeItemID) {
+                  $scope.foundFoodPairings.push($scope.pairingList[i]);            
+                };
+              };
+           
+              
+              //get UIDs of all the drinks that pair with brunch item
+              for (var i = 0; i < $scope.foundFoodPairings.length; i++) {
+                $scope.foodMatches.push($scope.foundFoodPairings[i].brunchItem);
+              };
+           
+
+              // get the information for all the drinks that pair with brunch item
+              $scope.brunchList.$loaded(
+                function() {  
+                  for (i = 0; i < $scope.foodMatches.length; i++) {
+                    for (j = 0; j < $scope.brunchList.length; j++){
+                      if($scope.foodMatches[i] == $scope.brunchList[j]["$id"]) {               
+                        $scope.thePairedFoods.push($scope.brunchList[j]);
+                      }
                     }
                   }
                 }
-              }
-            )
-          }
-        )
+              )
+              return $scope.show = true;
+            }
+          )
+        }
       }
-    );
-  return $scope.show = true;
+    ); 
   };
 
+
+
+  
   $scope.searchAgain = function() {
     return $scope.show = false;
   };
   
+
+
 }]);
+
+
 
 brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.brunchList = Arrays.brunchItems;

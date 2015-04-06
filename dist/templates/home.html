@@ -18,14 +18,14 @@
         <input type="text" class="boozeInput" ng-model="drinkName">
       </form>
     </div>
-    <p ng-show="found">I'm sorry we couldn't find what you were looking!</p>
+    <p ng-show="notFound">I'm sorry we couldn't find what you were looking!</p>
   </div>
 </div>
 
 
 <div ng-show="show" class="pairings">
   <div>
-    <div ng-repeat="item in theBrunchItem" class="results">
+    <div ng-hide="brunchSearchName" ng-repeat="item in theBrunchItem" class="results">
       <i class="fa fa-cutlery fa-5x image"></i>
       <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
     </div>
@@ -43,7 +43,7 @@
             </p>
           </div>
       </div>
-      <div ng-repeat="item in theBoozeItem" class="results">
+      <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
         <i class="fa fa-glass fa-5x image"></i>
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
