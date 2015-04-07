@@ -39,8 +39,8 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
     $scope.thePairedFoods = [];  
-    $scope.boozeSearchName = true;
-    $scope.brunchSearchName = false;
+    $scope.boozeSearchName = true; // if user searched for booze item prior to brunch search this will hide what they searched for
+    $scope.brunchSearchName = false; // this shows what brunch item the user searched for
      var doesExist = false;
    
     
@@ -107,8 +107,8 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
       $scope.foundFoodPairings = [];
       $scope.thePairedFoods = [];
       $scope.thePairedDrinks = [];
-      $scope.brunchSearchName = true;
-      $scope.boozeSearchName = false;
+      $scope.brunchSearchName = true; // if user searched for brunch item prior to booze search this hides what they searched for
+      $scope.boozeSearchName = false; // this shows what booze item the user searched for
       var doesExist = false;
      
 
@@ -186,8 +186,9 @@ brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
 
-
 }]);
+
+
 
 brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   $scope.brunchList = Arrays.brunchItems;
