@@ -1,54 +1,58 @@
 body {
   font-family: 'Cabin', sans-serif;
-  
-  }
-
-nav {
-  text-align: center;
-  font-size: 16px;  
-  line-height: 16px;   
-  padding: 30px 0 0 0;
-  text-transform: uppercase;
-  
+  margin: 0;
+  color: #2E2E2E;
 }
 
-nav a {
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  color: black;
-  font-weight: 300;
+body::after {
+  content: "";
+  background: url("//lh6.googleusercontent.com/-iOeNF0I1KjY/VScOrd_2-JI/AAAAAAAAPrU/2e4rLM20I-s/w925-h617-no/brunchtable.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
 
- a:hover {
-  font-weight: bold;
-  letter-spacing: 0.1em;
-}
 
 /***************
 Landing and Search View
 ***************/
 
+.heading {
+  margin-top: -55px;
+}
 
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
-  font-size: 630%;
+  font-size: 900%;
   word-spacing: -12px;
-}
+} 
 
 .textbox {
-  margin-top: -30px;
-  max-width: 630px;
+  margin-top: -50px;
+  max-width: 710px;
   margin-left: auto;
   margin-right: auto;
 }
 
+
 .about {
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 100;
   line-height: 135%;
 }
+
+.container {
+  width: 100%;
+  margin-top: 20px;
+}
+
 
 .search {
   margin-left: auto;
@@ -56,6 +60,7 @@ h1 {
   max-width: 550px;
   margin-top: 100px;
 }
+
 
 input {
   display: block;
@@ -80,6 +85,37 @@ input[type="text"]{
   text-align: center;
   font-size: 20px;
   margin-top: 40px;
+}
+
+
+footer {
+  position:fixed;
+  bottom: 0px;
+  height:100px;
+  width:100%;
+  background: white;
+  opacity: 0.8;
+}
+
+
+.nav {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;  
+  line-height: 16px;   
+  text-transform: uppercase;  
+}
+
+.nav a {
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  font-weight: 300;
+  color: black;
+}
+
+ a:hover {
+  font-weight: bold;
+  letter-spacing: 0.1em;
 }
 
 
