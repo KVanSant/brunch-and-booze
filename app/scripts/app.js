@@ -21,7 +21,11 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
     templateUrl: '/templates/admin.html'
   });
 
-
+  $stateProvider.state('account', {
+      url: '/account',
+      controller: 'AccountCtrl',
+      templateUrl: '/templates/account.html'
+    });
 }]);
 
 
@@ -174,8 +178,6 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
     return $scope.show = false;
   };
   
-
-
 }]);
 
 
@@ -206,8 +208,16 @@ brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
   }
 
 
+}]);
+
+
+brunch.controller('AccountCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
+  $scope.brunchList = Arrays.brunchItems;
+  $scope.boozeList = Arrays.boozeItems;
+  $scope.pairingList = Arrays.pairingItems;
 
 }]);
+
 
 
 brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){

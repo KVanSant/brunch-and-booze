@@ -6,71 +6,66 @@
     </div>
   </div>
   <div class="container">
-  <div class="search">
     <div class="brunchContainer">
-      <i class="fa fa-cutlery fa-5x brunch"></i>
+      <img src="//lh6.googleusercontent.com/-YSV5sNwfW-g/VS1kO9JAn0I/AAAAAAAAPxY/bDn0Jz8pBi4/w78-h87-no/Untitled-1_03.png" alt="Stack of pancakes">
       <form ng-submit="searchBrunch(foodName)">
-        <input type="text" class="brunchInput" ng-model="foodName">
+        <input type="text" class="brunchInput" ng-model="foodName" placeholder="food name...">
       </form>
     </div>  
     <div class="boozeContainer">
-      <i class="fa fa-glass fa-5x booze"></i>
+      <img src="//lh4.googleusercontent.com/-uuczc-rX-T8/VS1kTqfo_hI/AAAAAAAAPxg/CSct9-sWZvo/w65-h98-no/Untitled-1_06.png" alt="Cocktail Glass">
       <form ng-submit="searchBooze(drinkName)">
-        <input type="text" class="boozeInput" ng-model="drinkName">
+        <input type="text" class="boozeInput" ng-model="drinkName" placeholder="drink name...">
       </form>
     </div>
-    <p ng-show="notFound" class="notFound">Oh no! We don't have a pairing for that. Feel free to search again!</p>
-  </div>
+    <p ng-show="notFound" class="notFound">Oh no! </br> We don't have a pairing for that. </br> Feel free to search again!</p>
   </div>
 </div>
 
 
-<div ng-show="show" class="pairings">
-  <div class="innerbox">
-    <div ng-hide="brunchSearchName" ng-repeat="item in theBrunchItem" class="results">
-      <i class="fa fa-cutlery fa-5x image"></i>
-      <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
-    </div>
-    <div ng-repeat="pairs in thePairedDrinks">
-      <i class="fa fa-glass fa-5x tempImage"></i>
-        <div class="recipeInfo">
-          <h3 class="itemName">{{pairs.name}}</h3>
-          <p class="ingredients">
-            1 thing you need<br/>
-            2 another thing you need<br/> 
-            3 something else you need<br/>     
-          </p>
-          <p class="instructions">
-            This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
-            </p>
-        </div>
-      </div>
-      <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
-        <i class="fa fa-glass fa-5x image"></i>
+  <div ng-show="show" class="pairings">
+    <div class="innerbox">
+      <div ng-hide="brunchSearchName" ng-repeat="item in theBrunchItem" class="results">
+        <i class="fa fa-cutlery fa-5x image"></i>
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
-      <div ng-repeat="pairs in thePairedFoods">
-        <i class="fa fa-cutlery fa-5x tempImage"></i>
-        <div class="recipeInfo">
-          <h3 class="itemName">{{pairs.name}}</h3>
-          <p class="ingredients">
-            1 thing you need<br/>
-             2 another thing you need<br/> 
-             3 something else you need<br/>     
-          </p>
-          <p class="instructions">
-            This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
-          </p>
+      <div ng-repeat="pairs in thePairedDrinks">
+        <i class="fa fa-glass fa-5x tempImage"></i>
+          <div class="recipeInfo">
+            <h3 class="itemName">{{pairs.name}}</h3>
+            <p class="ingredients">
+              1 thing you need<br/>
+              2 another thing you need<br/> 
+              3 something else you need<br/>     
+            </p>
+            <p class="instructions">
+              This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
+              </p>
+          </div>
         </div>
-      </div>
+        <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
+          <i class="fa fa-glass fa-5x image"></i>
+          <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
+        </div>
+        <div ng-repeat="pairs in thePairedFoods">
+          <i class="fa fa-cutlery fa-5x tempImage"></i>
+          <div class="recipeInfo">
+            <h3 class="itemName">{{pairs.name}}</h3>
+            <p class="ingredients">
+              1 thing you need<br/>
+               2 another thing you need<br/> 
+               3 something else you need<br/>     
+            </p>
+            <p class="instructions">
+              This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
+            </p>
+          </div>
+        </div>
+    </div>
   </div>
-  <button ng-click="searchAgain()">Search again?</button>  
-</div>
+  <div  class="wrapper">
+    <a ng-show="show" ng-click="searchAgain()" class="searchAgain">Search again?</a>
+  </div>
 
-<footer>
-   <div class="nav">
-      <a ui-sref="home" ng-click="searchAgain()">Home</a>
-      <a ui-sref="recipes">Recipes</a>
-      <a href="#">Account</a>
-  </div>  
-</footer>
+
+
