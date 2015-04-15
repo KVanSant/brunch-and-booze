@@ -145,24 +145,31 @@ Found Pairings View
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  max-height: 750px;
   background: white;
   opacity: 0.8;
   color: #333333;
 }
 
 .innerbox {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 10px;
 }
 
 .results {
   text-align: center;
 }
 
+.recipeInfo {
+  padding-left: 20px;
+  max-width: 500px;
+}
+
+.recipe {
+  display: inline-block;
+}
+
 .wrapper {
   text-align: center;
+  margin-top: 10px;
 }
 
 .searchAgain {

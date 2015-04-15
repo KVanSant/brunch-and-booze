@@ -30,37 +30,37 @@
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
       <div ng-repeat="pairs in thePairedDrinks">
-        <i class="fa fa-glass fa-5x tempImage"></i>
-          <div class="recipeInfo">
-            <h3 class="itemName">{{pairs.name}}</h3>
-            <p class="ingredients">
-              1 thing you need<br/>
-              2 another thing you need<br/> 
-              3 something else you need<br/>     
-            </p>
-            <p class="instructions">
-              This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
-              </p>
-          </div>
+        <i class="fa fa-glass fa-5x tempImage recipe"></i>
+        <div class="recipeInfo recipe">
+          <h3 class="itemName">{{pairs.name}}</h3>
+          <p class="ingredients">
+            1 thing you need<br/>
+            2 another thing you need<br/> 
+            3 something else you need<br/>     
+          </p>
+          <p class="instructions">
+            This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
+          </p>
         </div>
-        <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
-          <i class="fa fa-glass fa-5x image"></i>
-          <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
-        </div>
-        <div ng-repeat="pairs in thePairedFoods">
-          <i class="fa fa-cutlery fa-5x tempImage"></i>
-          <div class="recipeInfo">
-            <h3 class="itemName">{{pairs.name}}</h3>
-            <p class="ingredients">
-              1 thing you need<br/>
-               2 another thing you need<br/> 
-               3 something else you need<br/>     
+      </div>
+      <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
+         <i class="fa fa-glass fa-5x image"></i>
+        <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
+      </div>
+      <div ng-repeat="pairs in thePairedFoods">
+        <i class="fa fa-cutlery fa-5x tempImage recipe"></i>
+        <div class="recipeInfo recipe">
+          <h3 class="itemName">{{pairs.name}}</h3>
+          <p class="ingredients">
+            1 thing you need<br/>
+            2 another thing you need<br/> 
+            3 something else you need<br/>     
             </p>
-            <p class="instructions">
-              This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
-            </p>
-          </div>
+          <p class="instructions">
+            This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
+          </p>
         </div>
+      </div>
     </div>
   </div>
   <div  class="wrapper">
