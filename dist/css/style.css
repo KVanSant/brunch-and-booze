@@ -1,7 +1,9 @@
 body {
   font-family: 'Cabin', sans-serif;
   margin: 0;
-  color: #333333; }
+  padding: 0;
+  color: #333333;
+  height: 100%; }
 
 body::after {
   content: "";
@@ -17,6 +19,7 @@ body::after {
 
 /***************
 Landing and Search View
+
 ***************/
 .heading {
   margin-top: -55px; }
@@ -53,7 +56,7 @@ h1 {
 
 .boozeContainer {
   display: inline-block;
-  float: right; }
+  margin-left: 242px; }
 
 .boozeContainer img {
   margin-left: 40px; }
@@ -75,36 +78,6 @@ input[type="text"] {
   text-align: center;
   font-size: 27px;
   margin-top: 40px; }
-
-footer {
-  position: fixed;
-  bottom: 0px;
-  height: 100px;
-  width: 100%;
-  background: white;
-  opacity: 0.8; }
-
-.nav {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 16px;
-  line-height: 16px;
-  text-transform: uppercase; }
-
-.nav a {
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  font-weight: 300;
-  color: black;
-  letter-spacing: 0.1em; }
-
-a:hover {
-  font-weight: bold;
-  letter-spacing: 0.2em; }
-
-.copyright {
-  font-size: 14px;
-  color: #EAEAEA; }
 
 /***************
 Found Pairings View
@@ -154,3 +127,36 @@ All Recipes List
 ***************/
 .item {
   list-style: none; }
+
+/***************
+    Footer
+***************/
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background: white;
+  opacity: 0.8; }
+
+.nav {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: uppercase; }
+
+.nav a {
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  font-weight: 300;
+  color: black;
+  letter-spacing: 0.1em; }
+
+a:hover {
+  font-weight: bold;
+  letter-spacing: 0.2em; }
+
+.copyright {
+  font-size: 14px;
+  color: #EAEAEA; }
