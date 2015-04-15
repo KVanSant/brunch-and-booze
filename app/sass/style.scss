@@ -8,7 +8,7 @@ body {
 
 body::after {
   content: "";
-  background: url("//lh5.googleusercontent.com/-yFRgwAcLeBs/VS2sMnPuFiI/AAAAAAAAPyU/xFQ3GkjSOPQ/s538-no/Beautiful%2Bjuice%2B.jpg") no-repeat center center fixed;
+  background: url("//lh5.googleusercontent.com/-yFRgwAcLeBs/VS2sMnPuFiI/AAAAAAAAPyU/xFQ3GkjSOPQ/s824-no/Beautiful%2Bjuice%2B.jpg") no-repeat center center fixed;
   background-size: cover;
   opacity: 0.8;
   top: 0;
@@ -108,7 +108,7 @@ Found Pairings View
 
 
 .pairings {
-  max-width: 650px;
+  max-width:800px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -125,9 +125,21 @@ Found Pairings View
   text-align: center;
 }
 
+.circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
 .recipeInfo {
   padding-left: 20px;
-  max-width: 500px;
+  max-width: 600px;
+}
+
+.tempImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 .recipe {

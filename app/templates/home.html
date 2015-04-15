@@ -25,11 +25,11 @@
   <div ng-show="show" class="pairings">
     <div class="innerbox">
       <div ng-hide="brunchSearchName" ng-repeat="item in theBrunchItem" class="results">
-        <i class="fa fa-cutlery fa-5x image"></i>
+        <img src="{{item.image}}" class="circle">
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
       <div ng-repeat="pairs in thePairedDrinks">
-        <i class="fa fa-glass fa-5x tempImage recipe"></i>
+        <img src="{{pairs.image}}" class="tempImage recipe">
         <div class="recipeInfo recipe">
           <h3 class="itemName">{{pairs.name}}</h3>
           <p class="ingredients">
@@ -43,11 +43,11 @@
         </div>
       </div>
       <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
-         <i class="fa fa-glass fa-5x image"></i>
+         <img src="{{item.image}}" class="circle">
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
       <div ng-repeat="pairs in thePairedFoods">
-        <i class="fa fa-cutlery fa-5x tempImage recipe"></i>
+        <img src="{{pairs.image}}" class="tempImage recipe ">
         <div class="recipeInfo recipe">
           <h3 class="itemName">{{pairs.name}}</h3>
           <p class="ingredients">
