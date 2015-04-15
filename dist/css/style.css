@@ -102,6 +102,10 @@ a:hover {
   font-weight: bold;
   letter-spacing: 0.2em; }
 
+.copyright {
+  font-size: 14px;
+  color: #EAEAEA; }
+
 /***************
 Found Pairings View
 ***************/
