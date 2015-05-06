@@ -7,13 +7,13 @@
     </div>
     <div class="container">
       <div class="brunchContainer">
-        <img src="//lh6.googleusercontent.com/-YSV5sNwfW-g/VS1kO9JAn0I/AAAAAAAAPxY/bDn0Jz8pBi4/w78-h87-no/Untitled-1_03.png" alt="Stack of pancakes">
+        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/stackofpancakesicon.png" alt="Stack of pancakes">
         <form ng-submit="searchBrunch(foodName)">
           <input type="text" class="brunchInput" ng-model="foodName" placeholder="food name...">
         </form>
       </div>  
       <div class="boozeContainer">
-        <img src="//lh4.googleusercontent.com/-uuczc-rX-T8/VS1kTqfo_hI/AAAAAAAAPxg/CSct9-sWZvo/w65-h98-no/Untitled-1_06.png" alt="Cocktail Glass">
+        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/cocktailglassicon.png" alt="Cocktail Glass">
         <form ng-submit="searchBooze(drinkName)">
           <input type="text" class="boozeInput" ng-model="drinkName" placeholder="drink name...">
         </form>
@@ -28,36 +28,30 @@
         <img src="{{item.image}}" class="circle">
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
-      <div ng-repeat="pairs in thePairedDrinks">
-        <img src="{{pairs.image}}" class="tempImage recipe">
+      <div ng-repeat="pairs in thePairedDrinks" class="pair">
+        <img src="{{pairs.image}}" class="recipeImage recipe">
         <div class="recipeInfo recipe">
           <h3 class="itemName">{{pairs.name}}</h3>
-          <p class="ingredients">
-            1 thing you need<br/>
-            2 another thing you need<br/> 
-            3 something else you need<br/>     
-          </p>
-          <p class="instructions">
-            This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
-          </p>
+         <div class="ingredients" ng-repeat="ingredient in pairs.ingredients">
+            <p>{{ingredient}}</p>
+          </div>
+          <p class="instructions">{{pairs.instructions}}</p>
+          <p class="credits">{{pairs.credits}}</p>
         </div>
       </div>
       <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
          <img src="{{item.image}}" class="circle">
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
-      <div ng-repeat="pairs in thePairedFoods">
-        <img src="{{pairs.image}}" class="tempImage recipe ">
+      <div ng-repeat="pairs in thePairedFoods" class="pair">
+        <img src="{{pairs.image}}" class="recipeImage recipe ">
         <div class="recipeInfo recipe">
           <h3 class="itemName">{{pairs.name}}</h3>
-          <p class="ingredients">
-            1 thing you need<br/>
-            2 another thing you need<br/> 
-            3 something else you need<br/>     
-            </p>
-          <p class="instructions">
-            This is how you make it and then once it's made enjoy it! and more stufff alafjdslkjfojflksdjf djfklajf jfkdsljfa fjdaldf jsjfksdl jfdksafjsdk jdksjaf jfoewjfdsljf oeajfldjsiofepajfkdsjioafjeoiafdsjfioweaf jkdsj;f
-          </p>
+          <div class="ingredients" ng-repeat="ingredient in pairs.ingredients">
+            <p>{{ingredient}}</p>
+          </div>
+          <p class="instructions">{{pairs.instructions}}</p>
+          <p class="credits">{{pairs.credits}}</p>
         </div>
       </div>
     </div>

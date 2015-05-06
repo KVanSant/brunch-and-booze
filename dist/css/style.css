@@ -7,7 +7,7 @@ body {
 
 body::after {
   content: "";
-  background: url("//lh5.googleusercontent.com/-yFRgwAcLeBs/VS2sMnPuFiI/AAAAAAAAPyU/xFQ3GkjSOPQ/s824-no/Beautiful%2Bjuice%2B.jpg") no-repeat center center fixed;
+  background: url("https://s3-us-west-1.amazonaws.com/brunchandboozeimages/Beautiful+juice++(1).jpg") no-repeat center center fixed;
   background-size: cover;
   opacity: 0.8;
   top: 0;
@@ -83,7 +83,7 @@ input[type="text"] {
 Found Pairings View
 ***************/
 .pairings {
-  max-width: 800px;
+  max-width: 900px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -106,13 +106,23 @@ Found Pairings View
   padding-left: 20px;
   max-width: 600px; }
 
-.tempImage {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; }
+.recipeImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  vertical-align: top;
+  margin-top: 20px; }
 
 .recipe {
   display: inline-block; }
+
+.ingredients p {
+  margin: 0;
+  padding: 0; }
+
+.credits {
+  font-weight: lighter;
+  opacity: 0.3; }
 
 .wrapper {
   text-align: center;
@@ -142,12 +152,12 @@ All Recipes List
     Footer
 ***************/
 .footer {
-  position: fixed;
   bottom: 0;
   height: 100px;
   width: 100%;
   background: white;
-  opacity: 0.8; }
+  opacity: 0.8;
+  position: fixed; }
 
 .nav {
   margin-top: 40px;
