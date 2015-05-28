@@ -28,31 +28,32 @@ Landing and Search Field View
 
 
 .heading {
-  margin-top: -55px;
+  margin-top: -10%;
 }
+
 
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
-  font-size: 600%;
+  font-size: 370%;
   word-spacing: -12px;
 } 
 
 
 .textbox {
-  margin-top: -60px;
+  margin-top: -10%;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -15%;
 }
-
 
 .about {
   text-align: center;
-  font-size: 170%;
+  font-size: 150%;
   font-weight: 100;
   line-height: 135%;
-}
+} 
 
 .rwd-about {
   display: none;
@@ -84,9 +85,10 @@ input[type="text"]{
 }
 
 .rwd-or {
-  font-size: 500%;
+  font-size: 400%;
   font-family: 'Sail', cursive;
   font-weight: bold;
+  margin: 5%;
 }
 
 .notFound {
@@ -196,7 +198,6 @@ All Recipes List
 
 .footer {
   bottom: 0;
-  height: 100px;
   width:100%;
   background: white;
   opacity: 0.8;
@@ -204,7 +205,7 @@ All Recipes List
 }
 
 .nav {
-  margin-top: 40px;
+  margin-top: 3%;
   text-align: center;
   font-size: 16px;  
   line-height: 16px;   
@@ -240,60 +241,62 @@ All Recipes List
 /*******************************************************************************/
 @media screen and (min-width: 650px) {
 
+  .heading {
+    margin-top: -55px;
+  }
 
-h1 {
-  font-size: 800%;
-}
+  h1 {
+    font-size: 800%;
+  }
 
-.textbox {
-  width: 55%;
-}
+  .textbox {
+    width: 55%;
+    margin-top: -60px;
+      margin-bottom: initial;
+  }
 
-.rwd-about {
-  display: initial;
-}
-
-
-.container {
-  max-width: 550px;
-  text-align: initial;
-}
-
-.brunchContainer {
-  display: inline-block;
-}
-
-.brunchContainer img {
-  margin-left: 35px;
-}
-
-.boozeContainer {
-  display: inline-block;
-  margin-left: 242px;
-}
-
-.boozeContainer img {
-  margin-left: 40px;
-}
-
-.rwd-or {
-  display: none;
-}
+  .rwd-about {
+    display: initial;
+  }
 
 
+  .container {
+    max-width: 550px;
+    text-align: initial;
+  }
 
+  .brunchContainer {
+    display: inline-block;
+  }
 
+  .brunchContainer img {
+    margin-left: 35px;
+  }
 
+  .boozeContainer {
+    display: inline-block;
+    margin-left: 242px;
+  }
 
-/******FOOTER*********/
+  .boozeContainer img {
+    margin-left: 40px;
+  }
 
+  .rwd-or {
+    display: none;
+  }
+
+/***************
+    Footer
+***************/
+
+  
 .footer {
   height: 100px;
 }
 
-
-.nav a {
-  padding: 10px 20px 10px 20px;
+.nav {
+  margin-top: 40px;
 }
 
 
