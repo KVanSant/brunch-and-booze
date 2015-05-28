@@ -1,19 +1,20 @@
  <div ng-hide="show" class="home">
     <div class="heading"> 
-      <h1>Brunch &Booze</h1>
+      <h1 class="app-name">Brunch &Booze</h1>
       <div class="textbox">
         <p class="about">Find food and drink pairings for the tastiest brunch ever! Simply search for a food or drink item to see a list of suggested pairings.</p>
       </div>
     </div>
     <div class="container">
       <div class="brunchContainer">
-        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/stackofpancakesicon.png" alt="Stack of pancakes">
+        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/stackofpancakesicon.png" alt="Stack of pancakes" class="icon">
         <form ng-submit="searchBrunch(foodName)">
           <input type="text" class="brunchInput" ng-model="foodName" placeholder="food name...">
         </form>
-      </div>  
+      </div> 
+      <p class="rwd-or">Or</p> 
       <div class="boozeContainer">
-        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/cocktailglassicon.png" alt="Cocktail Glass">
+        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/cocktailglassicon.png" alt="Cocktail Glass" class="icon">
         <form ng-submit="searchBooze(drinkName)">
           <input type="text" class="boozeInput" ng-model="drinkName" placeholder="drink name...">
         </form>
