@@ -27,7 +27,7 @@ Landing and Search Field View
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
-  font-size: 800%;
+  font-size: 600%;
   word-spacing: -12px; }
 
 .textbox {
@@ -181,6 +181,9 @@ a:hover {
 /*******************************************************************************/
 /*******************************************************************************/
 @media screen and (min-width: 650px) {
+  /******FOOTER*********/
+  h1 {
+    font-size: 800%; }
   .textbox {
     width: 55%; }
   .container {
@@ -196,4 +199,8 @@ a:hover {
   .boozeContainer img {
     margin-left: 40px; }
   .rwd-or {
-    display: none; } }
+    display: none; }
+  .footer {
+    height: 100px; }
+  .nav a {
+    padding: 10px 20px 10px 20px; } }

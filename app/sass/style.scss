@@ -34,9 +34,10 @@ Landing and Search Field View
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
-  font-size: 800%;
+  font-size: 600%;
   word-spacing: -12px;
 } 
+
 
 .textbox {
   margin-top: -60px;
@@ -236,11 +237,13 @@ All Recipes List
 @media screen and (min-width: 650px) {
 
 
+h1 {
+  font-size: 800%;
+}
 
 .textbox {
   width: 55%;
 }
-
 
 .container {
   max-width: 550px;
@@ -267,5 +270,22 @@ All Recipes List
 .rwd-or {
   display: none;
 }
+
+
+
+
+
+
+/******FOOTER*********/
+
+.footer {
+  height: 100px;
+}
+
+
+.nav a {
+  padding: 10px 20px 10px 20px;
+}
+
 
 }
