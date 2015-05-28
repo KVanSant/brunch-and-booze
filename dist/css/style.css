@@ -27,7 +27,7 @@ Landing and Search Field View
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
-  font-size: 370%;
+  font-size: 170%;
   word-spacing: -12px; }
 
 .textbox {
@@ -68,7 +68,7 @@ input[type="text"] {
   font-size: 16px; }
 
 .rwd-or {
-  font-size: 400%;
+  font-size: 200%;
   font-family: 'Sail', cursive;
   font-weight: bold;
   margin: 5%; }
