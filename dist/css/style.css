@@ -42,6 +42,9 @@ h1 {
   font-weight: 100;
   line-height: 135%; }
 
+.rwd-about {
+  display: none; }
+
 .container {
   margin-top: 70px;
   margin-left: auto;
@@ -186,6 +189,8 @@ a:hover {
     font-size: 800%; }
   .textbox {
     width: 55%; }
+  .rwd-about {
+    display: initial; }
   .container {
     max-width: 550px;
     text-align: initial; }
