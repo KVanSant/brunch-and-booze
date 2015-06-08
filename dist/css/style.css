@@ -21,9 +21,6 @@ body::after {
 Landing and Search Field View
 
 ***************/
-.heading {
-  margin-top: -10%; }
-
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
@@ -101,9 +98,8 @@ Found Pairings View
   height: 250px;
   border-radius: 50%; }
 
-.recipeInfo {
-  padding-left: 20px;
-  max-width: 600px; }
+.pair {
+  text-align: center; }
 
 .recipeImage {
   width: 200px;
@@ -112,8 +108,8 @@ Found Pairings View
   vertical-align: top;
   margin-top: 20px; }
 
-.recipe {
-  display: inline-block; }
+.recipeInfo {
+  text-align: initial; }
 
 .ingredients p {
   margin: 0;
@@ -155,7 +151,8 @@ All Recipes List
   width: 100%;
   background: white;
   opacity: 0.8;
-  position: fixed; }
+  position: fixed;
+  display: none; }
 
 .nav {
   margin-top: 3%;
@@ -186,8 +183,11 @@ a:hover {
 /*******************************************************************************/
 @media screen and (min-width: 600px) {
   /***************
-    Footer
-***************/
+      Footer
+  ***************/
+  /***************
+      pairing view
+  ***************/
   .heading {
     margin-top: -55px; }
   h1 {
@@ -213,6 +213,12 @@ a:hover {
   .rwd-or {
     display: none; }
   .footer {
-    height: 100px; }
+    height: 100px;
+    display: initial; }
   .nav {
-    margin-top: 40px; } }
+    margin-top: 40px; }
+  .recipe {
+    display: inline-block; }
+  .recipeInfo {
+    padding-left: 20px;
+    max-width: 600px; } }
