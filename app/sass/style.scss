@@ -101,7 +101,6 @@ Found Pairings View
 ***************/
 
 
-
 .pairings {
   max-width:900px;
   margin-top: 50px;
@@ -118,6 +117,10 @@ Found Pairings View
 
 .results {
   text-align: center;
+}
+
+.results img{
+  display: none;
 }
 
 .circle {
@@ -140,6 +143,17 @@ Found Pairings View
 
 .recipeInfo {
   text-align: initial;
+}
+
+.itemName {
+  text-align: center;
+  font-size: 200%;
+}
+
+.ingredients,
+.instructions,
+.credits {
+  display: none;
 }
 
 .ingredients p {
@@ -196,7 +210,6 @@ All Recipes List
   background: white;
   opacity: 0.8;
   position: fixed;
-  display: none;
 }
 
 
@@ -289,7 +302,6 @@ All Recipes List
     
   .footer {
     height: 100px;
-    display: initial;
   }
 
   .nav {
@@ -300,7 +312,15 @@ All Recipes List
       pairing view
   ***************/
 
+  .results img {
+    display: initial;
+  }
 
+.ingredients,
+.instructions,
+.credits {
+  display: initial;
+}
 
   .recipe {
     display: inline-block;
@@ -312,5 +332,9 @@ All Recipes List
     max-width: 600px;
   }
 
+  .itemName {
+    text-align: initial;
+    font-size: initial;
+  }
 
 }
