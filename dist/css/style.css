@@ -161,7 +161,8 @@ All Recipes List
   width: 100%;
   background: white;
   opacity: 0.8;
-  position: fixed; }
+  position: fixed;
+  display: none; }
 
 .nav {
   margin-top: 3%;
@@ -222,7 +223,8 @@ a:hover {
   .rwd-or {
     display: none; }
   .footer {
-    height: 100px; }
+    height: 100px;
+    display: initial; }
   .nav {
     margin-top: 40px; }
   .results img {
