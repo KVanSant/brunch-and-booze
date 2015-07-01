@@ -1,4 +1,4 @@
-brunch = angular.module('Brunch', ['firebase', 'ui.router']);
+brunch = angular.module('Brunch', ['firebase', 'ui.router', 'ngDialog']);
 
 brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
@@ -29,7 +29,7 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
 }]);
 
 
-brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll', function($scope, Arrays, $location, $anchorScroll) { 
+brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll', 'ngDialog', function($scope, Arrays, $location, $anchorScroll, ngDialog) { 
   $scope.brunchList = Arrays.brunchItems;
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
@@ -60,7 +60,18 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
         };
         //if searched item does not exist show a message that item was not found  
         if (doesExist == false) {
-          return $scope.notFound = true;
+          ngDialog.open({  
+            template: '<div class="modal-header">\
+                        <h3 class="modal-title">Oh no!</h3>\
+                      </div>\
+                      <div class="modal-body">\
+                        <p>We do not have a pairing for that. Feel free to search again!</p>\
+                      </div>\
+                      <div class="modal-footer">\
+                        <button class="btn btn-primary" ng-click="closeThisDialog()">Search Again</button>\
+                      </div>',
+            plain: true
+          });
         }
 
         //if searched item does exit find pairing match
@@ -129,7 +140,18 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
 
         //if searched item does not exist show a message that item was not found  
         if (doesExist == false) {
-          return $scope.notFound = true;
+          ngDialog.open({  
+            template: '<div class="modal-header">\
+                        <h3 class="modal-title">Oh no!</h3>\
+                      </div>\
+                      <div class="modal-body">\
+                        <p>We do not have a pairing for that. Feel free to search again!</p>\
+                      </div>\
+                      <div class="modal-footer">\
+                        <button class="btn btn-primary" ng-click="closeThisDialog()">Search Again</button>\
+                      </div>',
+            plain: true
+          });
         }
 
         //if searched item does exit find pairing match

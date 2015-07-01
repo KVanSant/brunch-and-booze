@@ -8,8 +8,7 @@ body {
   margin: 0;
   padding: 0;
   bottom: 0;
-  color: #333333;
-  height: 100%; }
+  color: #333333; }
 
 /***************
 Landing and Search Field View
@@ -62,11 +61,6 @@ input[type="text"] {
   font-family: 'Sail', cursive;
   font-weight: bold;
   margin: 5%; }
-
-.notFound {
-  text-align: center;
-  font-size: 27px;
-  margin-top: 40px; }
 
 /***************
 Found Pairings View
