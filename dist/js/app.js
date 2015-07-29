@@ -10,23 +10,12 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
     templateUrl: '/templates/home.html'
   });
 
-  $stateProvider.state('recipes', {
-    url: '/recipes',
-    controller: 'RecipesCtrl',
-    templateUrl: '/templates/recipes.html'
-  });
-
   $stateProvider.state('admin', {
     url: '/admin',
     controller: 'AdminCtrl',
     templateUrl: '/templates/admin.html'
   });
 
-  $stateProvider.state('account', {
-      url: '/account',
-      controller: 'AccountCtrl',
-      templateUrl: '/templates/account.html'
-    });
 }]);
 
 
@@ -43,8 +32,6 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
     $scope.thePairedFoods = [];  
-    $scope.boozeSearchName = true; // if user searched for booze item prior to brunch search this will hide what they searched for
-    $scope.brunchSearchName = false; // this shows what brunch item the user searched for
      var doesExist = false;
    
     
@@ -55,7 +42,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
           if ($scope.brunchList[i].name.toLowerCase() == userInput.toLowerCase()) {
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
-            $scope.foodName = " "; 
+            $scope.itemName = " "; 
             doesExist = true;
           } 
         };
@@ -107,7 +94,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
                 }
               )
               return $scope.show = true;
-
+              return $scope.showRecipe = true;
             }
           );
         }
@@ -122,8 +109,6 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
       $scope.foundFoodPairings = [];
       $scope.thePairedFoods = [];
       $scope.thePairedDrinks = [];
-      $scope.brunchSearchName = true; // if user searched for brunch item prior to booze search this hides what they searched for
-      $scope.boozeSearchName = false; // this shows what booze item the user searched for
       var doesExist = false;
      
 
@@ -187,6 +172,7 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
                 }
               )
               return $scope.show = true;
+
             }
           )
         }
@@ -195,22 +181,23 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
   };
 
 
-
   
-  $scope.searchAgain = function() {
-    return $scope.show = false;
+
+  $scope.showRecipe = function(pairsId) {
+    $scope.selectedPairing = $scope.boozeList.$getRecord(pairsId);
+    return $scope.showRecipe = false;
   };
   
+   $scope.searchAgain = function() {
+    return $scope.show = false,
+           $scope.showRecipe = true;
+  };
+
+  
 }]);
 
 
 
-brunch.controller('RecipesCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
-  $scope.brunchList = Arrays.brunchItems;
-  $scope.boozeList = Arrays.boozeItems;
-  $scope.pairingList = Arrays.pairingItems;
-
-}]);
 
 
 
@@ -233,13 +220,6 @@ brunch.controller('AdminCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
 
 }]);
 
-
-brunch.controller('AccountCtrl', ['$scope', 'Arrays', function($scope, Arrays) {
-  $scope.brunchList = Arrays.brunchItems;
-  $scope.boozeList = Arrays.boozeItems;
-  $scope.pairingList = Arrays.pairingItems;
-
-}]);
 
 
 

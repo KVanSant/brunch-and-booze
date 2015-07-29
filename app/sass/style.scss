@@ -1,9 +1,10 @@
+
 html {
   height: 100%;
 }
 
 body {
-  background: url("https://s3-us-west-1.amazonaws.com/brunchandboozeimages/Beautiful-juice-.jpg") no-repeat center center fixed;
+  background: url("https://s3-us-west-1.amazonaws.com/brunchandboozeimages/Beautiful-juice-60.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Cabin', sans-serif;
   margin: 0;
@@ -20,61 +21,52 @@ Landing and Search Field View
 h1 {
   text-align: center;
   font-family: 'Sail', cursive;
-  font-size: 330%;
-  word-spacing: -12px;
+  font-size: 500%;
+  margin-top: -5px;
 } 
 
-
-.textbox {
-  margin-top: -9%;
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: -15%;
-}
 
 .about {
-  text-align: center;
-  font-size: 150%;
-  font-weight: 100;
-  line-height: 135%;
-} 
-
-.rwd-about {
-  display: none;
-}
-
-.container {
-  margin-top: 70px;
+  margin-top: -10%;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
   text-align: center;
+  font-size: 150%;
+  line-height: 135%;
+  width: 95%;
 }
 
 
-input {
-  display: block;
-  margin-top: 10px;
-  background: rgba(255,255,255, 0.8);
-  width: 150px;
-  height: 20px;
-  border: white;
-  margin: auto; 
+
+.container {
+  margin-top: 100px;
+  text-align: center;
+  width: 100%;
 }
 
-input[type="text"]{
+
+.search {
   font-family: 'Cabin', sans-serif;
-  color: #333333;
-  font-size: 16px;
+  font-size: 25px;
+  color: #333333; 
+  background: rgba(255,255,255, 0.9);
+  border: white;
+  display: block;
 }
 
-.rwd-or {
-  font-size: 300%;
-  font-family: 'Sail', cursive;
-  font-weight: bold;
-  margin: 5%;
+form input {
+  width: 358px;
+  height: 70px; 
 }
+
+
+.find {
+  height: 72px;
+  background: rgba(245, 127, 99, 0.9);
+  color: white;
+  border-style: solid;
+}
+
 
 
 /***************
@@ -82,8 +74,9 @@ Found Pairings View
 ***************/
 
 
-.pairings {
-  max-width:900px;
+
+.pairing-view {
+  width: 80%;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -96,41 +89,54 @@ Found Pairings View
   padding: 10px;
 }
 
-.results {
+.item-searched-for {
   text-align: center;
 }
 
-.results img{
-  display: none;
+h2 {
+  font-size: 220%;
+  margin-bottom: 0;
+}
+
+.item-searched-for p {
+  margin-top: 0;
+  font-size: 180%;
 }
 
 .circle {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-}
-
-.pair {
-   text-align: center;
-}
-
-.recipeImage {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  vertical-align: top;
-  margin-top: 20px;
 }
 
-.recipeInfo {
-  text-align: initial;
+.pairing {
+   text-align: center;
+   display: block;
 }
 
-.itemName {
+
+.pairing-image {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+}
+
+
+.pairing-image:hover{
+  cursor: pointer;
+}
+
+
+.pairing h3 {
+  margin-bottom: 0;
+}
+
+.item-name {
   text-align: center;
-  font-size: 200%;
+  font-size: 190%;
 }
 
+/*
 .ingredients,
 .instructions,
 .credits {
@@ -148,10 +154,11 @@ Found Pairings View
   opacity: 0.3;
 }
 
+*/
 
 .wrapper {
   text-align: center;
-  margin-top: 10px;
+  margin: 10px 0px;
 }
 
 .searchAgain {
@@ -171,153 +178,18 @@ Found Pairings View
 }
 
 /***************
-All Recipes List
-***************/
-
-.item {
-  list-style: none;
-}
-
-
-/***************
-    Footer
+Selected Pairing's Recipe View
 ***************/
 
 
 
-.footer {
-  bottom: 0;
-  width:100%;
-  background: white;
-  opacity: 0.8;
-  position: fixed;
-  display: none;
-}
-
-
-.nav {
-  margin-top: 3%;
-  text-align: center;
-  font-size: 16px;  
-  line-height: 16px;   
-  text-transform: uppercase;  
-}
-
-.nav a {
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  font-weight: 300;
-  color: black;
-  letter-spacing: 0.1em;
-}
-
- a:hover {
-  font-weight: bold;
-  letter-spacing: 0.2em;
-}
-
-
-.copyright {
-  font-size: 14px;
-  color: #EAEAEA;
-}
 
 
 
+/*********************
+RESPONSIVE
+*********************/
 
-/*******************************************************************************/
-/*******************************************************************************/
-/*******************************************************************************/
-/*******************************************************************************/
-/*******************************************************************************/
-@media screen and (min-width: 600px) {
-
-  .heading {
-    margin-top: -55px;
-  }
-
-  h1 {
-    font-size: 800%;
-  }
-
-  .textbox {
-    width: 55%;
-    margin-top: -60px;
-    margin-bottom: initial;
-  }
-
-  .rwd-about {
-    display: initial;
-  }
+@import "responsive";
 
 
-  .container {
-    max-width: 550px;
-    text-align: initial;
-  }
-
-  .brunchContainer {
-    display: inline-block;
-  }
-
-  .brunchContainer img {
-    margin-left: 35px;
-  }
-
-  .boozeContainer {
-    display: inline-block;
-    margin-left: 242px;
-  }
-
-  .boozeContainer img {
-    margin-left: 40px;
-  }
-
-  .rwd-or {
-    display: none;
-  }
-
-  /***************
-      Footer
-  ***************/
-
-    
-  .footer {
-    height: 100px;
-    display: initial;
-  }
-
-  .nav {
-    margin-top: 40px;
-  }
-  
- /***************
-      pairing view
-  ***************/
-
-  .results img {
-    display: initial;
-  }
-
-  .ingredients,
-  .instructions,
-  .credits {
-    display: initial;
-  }
-
-  .recipe {
-    display: inline-block;
-  }
-
-
-  .recipeInfo {
-    padding-left: 20px;
-    max-width: 600px;
-  }
-
-  .itemName {
-    text-align: initial;
-    font-size: initial;
-  }
-
-}

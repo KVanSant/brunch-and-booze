@@ -1,0 +1,170 @@
+
+/***********Phone Size and up***********/
+
+@media screen and (min-width: 300px) {
+
+ 
+  input:focus {
+    background: rgb(255,255,255);
+  }
+
+  form input {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+  }
+
+
+  .find {
+    width: 100%;
+    height: 60px; 
+    letter-spacing: 1px;
+    margin-top: 5px;
+  }
+
+  .container {
+    bottom: 0;
+    position: fixed;
+  }
+
+  span {
+    display: block;
+    margin-top: 7%;
+  }
+ 
+
+}
+
+
+/****************Tablet size and up***************/
+
+
+@media screen and (min-width: 600px) {
+
+
+  body {
+  background: url("https://s3-us-west-1.amazonaws.com/brunchandboozeimages/Beautiful-juice-70.jpg") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+}
+
+
+
+  input:focus {
+    background: rgba(255,255,255, 0.8);
+  }
+
+  h1 {
+    font-size: 800%;
+    margin-top: 30px;
+  }
+
+  .about {
+    width: 80%;
+    margin-top: -60px;
+    margin-bottom: initial;
+  }
+
+
+  .container {
+    position: initial;
+  }
+
+  span {
+    display: initial;
+  }
+
+  .search {
+    display: inline-block;
+  }
+
+
+  form input {
+    width: 358px;
+    height: 70px;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+
+  .find {
+    width: 170px;
+    height: 72px;
+    margin-left: 2px;
+    vertical-align: bottom;
+    position: initial;
+    background: rgba(255,255,255, 0.8);
+    letter-spacing: 0px;
+    margin-top: 0px;
+    color: #333333; 
+    border: none;
+  }
+
+  .find:hover {
+     background: rgba(255,255,255, 0.9);
+     cursor: pointer;
+  }
+
+
+ /***************
+      pairing view
+  ***************/
+
+  .pairing { 
+    display: inline-block;
+    width: 50%;
+  }
+
+
+  .last {
+    width: 100%
+  }
+
+
+/*
+  .ingredients,
+  .instructions,
+  .credits {
+    display: block;
+  }
+
+  .recipe {
+    display: inline-block;
+  }
+
+
+  .recipeInfo {
+    padding-left: 20px;
+    max-width: 600px;
+  }
+
+  .item-name {
+    text-align: initial;
+    font-size: initial;
+  }
+*/
+}
+
+@media screen and (min-width: 700px) {
+
+
+
+ .about {
+    width: 55%;
+  }
+
+ /***************
+      pairing view
+  ***************/
+
+.pairing { 
+    display: inline-block;
+    width: 33.333333333%;
+  }
+
+
+
+}
+

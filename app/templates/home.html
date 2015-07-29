@@ -1,46 +1,34 @@
- <div ng-hide="show" class="home">
+ <div ng-hide="show" ng-show"showRecipe" class="home">
     <div class="heading"> 
-      <h1>Brunch &Booze</h1>
-      <div class="textbox">
-        <p class="about">Find food and drink pairings for the tastiest brunch ever!<span class="rwd-about"> Simply search for a food or drink item to see a list of suggested pairings.</span> </p>
+      <h1>Brunch & Booze</h1>
+      <div class="about">
+        <p>Find food and drink pairings for the tastiest brunch ever!<span> Search for a food or drink item to see a list of suggested pairings.</span></p>
       </div>
     </div>
     <div class="container">
-      <div class="brunchContainer">
-        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/stackofpancakesicon.png" alt="Stack of pancakes" class="icon">
-        <form ng-submit="searchBrunch(foodName)">
-          <input type="text" class="brunchInput" ng-model="foodName" placeholder="food name...">
+        <form ng-submit="searchBrunch(itemName)">
+          <input type="text" class="item-input search" ng-model="itemName" placeholder="food or drink name...">
+          <button class="find search">Find Pairings</button>
         </form>
-      </div> 
-      <p class="rwd-or">Or</p> 
-      <div class="boozeContainer">
-        <img src="https://s3-us-west-1.amazonaws.com/brunchandboozeimages/cocktailglassicon.png" alt="Cocktail Glass" class="icon">
-        <form ng-submit="searchBooze(drinkName)">
-          <input type="text" class="boozeInput" ng-model="drinkName" placeholder="drink name...">
-        </form>
-      </div>
     </div>
   </div>
 
-  <div ng-show="show" class="pairings">
+
+  <div ng-show="show && showRecipe" class="pairing-view">
     <div class="innerbox">
-      <div ng-hide="brunchSearchName" ng-repeat="item in theBrunchItem" class="results">
+      <!--Brunch search results, show's the paired drinks -->
+      <div ng-repeat="item in theBrunchItem" class="item-searched-for">
+        <h2>You searched for {{item.name}}. Yum! </h2>
         <img src="{{item.image}}" class="circle">
-        <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
+        <p>Here's what we think would pair well with that.</p>
       </div>
-      <div ng-repeat="pairs in thePairedDrinks" class="pair">
-        <img src="{{pairs.image}}" class="recipeImage recipe">
-        <div class="recipeInfo recipe">
-          <h3 class="itemName">{{pairs.name}}</h3>
-         <div class="ingredients" ng-repeat="ingredient in pairs.ingredients">
-            <p>{{ingredient}}</p>
-          </div>
-          <p class="instructions">{{pairs.instructions}}</p>
-          <p class="credits">{{pairs.credits}}</p>
-        </div>
+      <div ng-repeat="pairs in thePairedDrinks" class="pairing" ng-class="{'last':$last}">
+          <h3 class="item-name">{{pairs.name}}</h3>
+          <img src="{{pairs.image}}" class="pairing-image" ng-click="showRecipe(pairs.$id)">
       </div>
-      <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
-         <img src="{{item.image}}" class="circle">
+      <!--Booze search results, show's the paired foods -->
+ <!-- <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
+        <img src="{{item.image}}" class="circle">
         <h2>You searched for {{item.name}}. Yum! <br/> Here's what we think would pair well with that.</h2>
       </div>
       <div ng-repeat="pairs in thePairedFoods" class="pair">
@@ -51,12 +39,32 @@
             <p>{{ingredient}}</p>
           </div>
           <p class="instructions">{{pairs.instructions}}</p>
-          <p class="credits">{{pairs.credits}}</p>
+          <p class="credits">Recipe from: <a href="{{pairs.credits}}">{{pairs.credits}}</a></p>
         </div>
-      </div>
+      </div> -->
+
     </div>
   </div>
-  <div  class="wrapper">
+
+    <div ng-hide="showRecipe" class="pairing-view">
+    <div class="innerbox">
+        <img src="{{selectedPairing.image}}" class="pairing-image">
+        <div class="recipe">
+          <h3>{{selectedPairing.name}}</h3>
+          <div class="ingredients" ng-repeat="ingredient in selectedPairing.ingredients">
+            <p>{{ingredient}}</p>
+          </div>
+          <p class="instructions">{{selectedPairing.instructions}}</p>
+          <p class="credits">Recipe from: <a href="{{selectedPairing.credits}}">{{selectedPairingcredits}}</a></p>
+        </div>
+      </div> 
+  </div>
+
+
+
+  <div class="wrapper">
     <a ng-show="show" ng-click="searchAgain()" class="searchAgain">Search again?</a>
   </div>
+
+
 
