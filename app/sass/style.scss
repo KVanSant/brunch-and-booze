@@ -182,7 +182,55 @@ Selected Pairing's Recipe View
 ***************/
 
 
+.recipe-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.recipe {
+  display: block;
+}
+
+/***************
+Not Found Modal
+***************/
+
+.modal {
+  font-family: 'Cabin', sans-serif;
+  color: #333333;
+  text-align: center;
+}
+
+
+.modal-title {
+  font-family: 'Sail', cursive;
+  font-size: 45px;
+  margin-top: -1px;
+}
+
+.modal-body {
+  font-size: 25px;
+  margin-top: -15px;
+}
+
+.modal-button {
+  background: rgb(255,255,255);
+  color: #333333; 
+  border: none;
+  width: 50%;
+  font-size: 20px;
+  height: 30px;
+}
+
+.modal-button:focus {
+  outline: none;
+}
+
+.modal-button:hover {
+    background: rgba(255,255,255, 0.6);
+    cursor: pointer;
+  }
 
 
 

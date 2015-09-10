@@ -24,7 +24,7 @@
       </div>
       <div ng-repeat="pairs in thePairedDrinks" class="pairing" ng-class="{'last':$last}">
           <h3 class="item-name">{{pairs.name}}</h3>
-          <img src="{{pairs.image}}" class="pairing-image" ng-click="showRecipe(pairs.$id)">
+          <img src="{{pairs.image}}" class="pairing-image"  ng-click="showSelectedRecipe(pairs)">
       </div>
       <!--Booze search results, show's the paired foods -->
  <!-- <div ng-hide="boozeSearchName" ng-repeat="item in theBoozeItem" class="results">
@@ -48,14 +48,14 @@
 
     <div ng-hide="showRecipe" class="pairing-view">
     <div class="innerbox">
-        <img src="{{selectedPairing.image}}" class="pairing-image">
+        <img src="{{selectedPairing.image}}" class="pairing-image recipe-image">
         <div class="recipe">
           <h3>{{selectedPairing.name}}</h3>
           <div class="ingredients" ng-repeat="ingredient in selectedPairing.ingredients">
             <p>{{ingredient}}</p>
           </div>
           <p class="instructions">{{selectedPairing.instructions}}</p>
-          <p class="credits">Recipe from: <a href="{{selectedPairing.credits}}">{{selectedPairingcredits}}</a></p>
+          <p class="credits">Recipe from: <a href="{{selectedPairing.credits}}">{{selectedPairing.credits}}</a></p>
         </div>
       </div> 
   </div>

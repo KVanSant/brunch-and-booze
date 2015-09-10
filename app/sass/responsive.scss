@@ -1,8 +1,11 @@
 
 /***********Phone Size and up***********/
 
-@media screen and (min-width: 300px) {
+@media screen and (min-width: 300px) and (max-width: 599px) {
 
+  .about p {
+  text-shadow: 2px 2px 15px #EBEBEB;
+  }
  
   input:focus {
     background: rgb(255,255,255);
@@ -32,6 +35,7 @@
     margin-top: 7%;
   }
  
+
 
 }
 
@@ -108,6 +112,7 @@
   }
 
 
+
  /***************
       pairing view
   ***************/
@@ -117,6 +122,10 @@
     width: 50%;
   }
 
+  .recipe-image {
+    width: 270px;
+    height: 270px;
+  }
 
   .last {
     width: 100%
@@ -163,7 +172,6 @@
     display: inline-block;
     width: 33.333333333%;
   }
-
 
 
 }

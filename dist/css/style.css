@@ -141,11 +141,53 @@ h2 {
 /***************
 Selected Pairing's Recipe View
 ***************/
+.recipe-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.recipe {
+  display: block; }
+
+/***************
+Not Found Modal
+***************/
+.modal {
+  font-family: 'Cabin', sans-serif;
+  color: #333333;
+  text-align: center; }
+
+.modal-title {
+  font-family: 'Sail', cursive;
+  font-size: 45px;
+  margin-top: -1px; }
+
+.modal-body {
+  font-size: 25px;
+  margin-top: -15px; }
+
+.modal-button {
+  background: white;
+  color: #333333;
+  border: none;
+  width: 50%;
+  font-size: 20px;
+  height: 30px; }
+
+.modal-button:focus {
+  outline: none; }
+
+.modal-button:hover {
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer; }
+
 /*********************
 RESPONSIVE
 *********************/
 /***********Phone Size and up***********/
-@media screen and (min-width: 300px) {
+@media screen and (min-width: 300px) and (max-width: 599px) {
+  .about p {
+    text-shadow: 2px 2px 15px #EBEBEB; }
   input:focus {
     background: white; }
   form input {
@@ -234,6 +276,9 @@ RESPONSIVE
   .pairing {
     display: inline-block;
     width: 50%; }
+  .recipe-image {
+    width: 270px;
+    height: 270px; }
   .last {
     width: 100%; } }
 
