@@ -26,7 +26,6 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
   $scope.showRecipe = true;
 
 
-
   $scope.searchBrunch = function(userInput) {
     $scope.theBrunchItem = [];
     $scope.drinkMatches = [];
@@ -49,24 +48,11 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
         };
         //if searched item does not exist show a message that item was not found  
         if (doesExist == false) {
-          ngDialog.open({  
-            template: '<div class="modal-header">\
-                          <h3 class="modal-title">Oh no!</h3>\
-                        </div>\
-                        <div class="modal-body">\
-                          <p>We do not have a pairing for that. Feel free to search again!</p>\
-                        </div>\
-                        <div class="modal-footer">\
-                          <button class="btn btn-primary modal-button" ng-click="closeThisDialog()">Search Again</button>\
-                        </div>',
-            className: 'ngdialog-theme-default modal',            
-            plain: true
-          });
+          $scope.brunchDoesNotExist = true;
         }
 
         //if searched item does exit find pairing match
         else  {
-        $scope.notFound = false;
           //using UID of brunch item, list all associated pairings and put into array
           $scope.pairingList.$loaded(
             function() {  
@@ -128,23 +114,11 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
 
         //if searched item does not exist show a message that item was not found  
         if (doesExist == false) {
-          ngDialog.open({  
-            template: '<div class="modal-header">\
-                        <h3 class="modal-title">Oh no!</h3>\
-                      </div>\
-                      <div class="modal-body">\
-                        <p>We do not have a pairing for that. Feel free to search again!</p>\
-                      </div>\
-                      <div class="modal-footer">\
-                        <button class="btn btn-primary" ng-click="closeThisDialog()">Search Again</button>\
-                      </div>',
-            plain: true
-          });
+            $scope.boozeDoesNotExist = true;
         }
 
         //if searched item does exit find pairing match
         else {  
-          $scope.notFound = false;
           //using UID of brunch item, list all associated pairings and put into array
           $scope.pairingList.$loaded(
             function() {  
@@ -182,6 +156,32 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
     ); 
   };
 
+
+  $scope.searchBrunchAndBooze = function(userInput){
+    //if user input is in booze list run searchBooze
+    //if user input is in brunch list run searchBrunch
+    //else show not found message
+
+    $scope.searchBooze(userInput);
+    $scope.searchBrunch(userInput);
+    console.log($scope.boozeDoesExist);
+
+    while ($scope.boozeDoesNotExist && $scope.brunchDoesNotExist){
+       ngDialog.open({  
+               template: '<div class="modal-header">\
+                          <h3 class="modal-title">Oh no!</h3>\
+                        </div>\
+                        <div class="modal-body">\
+                          <p>We do not have a pairing for that. Feel free to search again!</p>\
+                        </div>\
+                        <div class="modal-footer">\
+                          <button class="btn btn-primary modal-button" ng-click="closeThisDialog()">Search Again</button>\
+                        </div>',
+            className: 'ngdialog-theme-default modal',            
+            plain: true
+          });
+     }
+  };
 
   
 
