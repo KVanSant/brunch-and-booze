@@ -18,12 +18,12 @@ brunch.config(['$stateProvider', '$locationProvider', function($stateProvider, $
 }]);
 
 
-brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll', 'ngDialog', function($scope, Arrays, $location, $anchorScroll, ngDialog) { 
+brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll', 'ngDialog', function($scope, Arrays, $location, $anchorScroll, ngDialog) {
+  var ref = new Firebase("https://brunch-and-booze.firebaseio.com/");
   $scope.brunchList = Arrays.brunchItems;
   $scope.boozeList = Arrays.boozeItems;
   $scope.pairingList = Arrays.pairingItems;
   $scope.showRecipe = true;
-
 
   $scope.searchBrunch = function(userInput) {
     $scope.theBrunchItem = [];
@@ -31,9 +31,9 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
     $scope.foundDrinkPairings = [];
     $scope.thePairedDrinks = [];
     $scope.thePairedFoods = [];
-     var doesExist = false;
-   
-    
+    var doesExist = false;
+
+
     //get UID of queried brunch item
     $scope.brunchList.$loaded(
       function() {
@@ -41,39 +41,38 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
           if ($scope.brunchList[i].name.toLowerCase() == userInput.toLowerCase()) {
             $scope.brunchItemID = $scope.brunchList[i]["$id"];
             $scope.theBrunchItem.push($scope.brunchList[i]);
-            $scope.itemName = " "; 
-            doesExist = true;
-          } 
+           doesExist = true;
+          }
         };
-        //if searched item does not exist show a message that item was not found  
+        //if searched item does not exist show a message that item was not found
         if (doesExist == false) {
-          $scope.brunchDoesNotExist = true;
+        return $scope.brunchDoesNotExist = true;
         }
 
         //if searched item does exit find pairing match
         else  {
           //using UID of brunch item, list all associated pairings and put into array
           $scope.pairingList.$loaded(
-            function() {  
+            function() {
               for (var i = 0; i < $scope.pairingList.length; i++) {
                 if ($scope.pairingList[i].brunchItem == $scope.brunchItemID) {
                   $scope.foundDrinkPairings.push($scope.pairingList[i]);
                 };
               };
-           
-              
+
+
               //get UIDs of all the drinks that pair with brunch item
               for (var i = 0; i < $scope.foundDrinkPairings.length; i++) {
                 $scope.drinkMatches.push($scope.foundDrinkPairings[i].boozeItem);
               };
-           
+
 
               // get the information for all the drinks that pair with brunch item
               $scope.boozeList.$loaded(
-                function() {  
+                function() {
                   for (i = 0; i < $scope.drinkMatches.length; i++) {
                     for (j = 0; j < $scope.boozeList.length; j++){
-                      if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {               
+                      if($scope.drinkMatches[i] == $scope.boozeList[j]["$id"]) {
                         $scope.thePairedDrinks.push($scope.boozeList[j]);
                       }
                     }
@@ -97,7 +96,8 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
       $scope.thePairedFoods = [];
       $scope.thePairedDrinks = [];
       var doesExist = false;
-     
+
+
 
       //get UID of queried brunch item
     $scope.boozeList.$loaded(
@@ -106,40 +106,39 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
           if ($scope.boozeList[i].name.toLowerCase() == userInput.toLowerCase()) {
             $scope.boozeItemID = $scope.boozeList[i]["$id"];
             $scope.theBoozeItem.push($scope.boozeList[i]);
-            $scope.drinkName = " ";
             doesExist = true;
           }
         };
 
-        //if searched item does not exist show a message that item was not found  
+        //if searched item does not exist show a message that item was not found
         if (doesExist == false) {
-            $scope.boozeDoesNotExist = true;
+        return $scope.boozeDoesNotExist = true;
         }
 
         //if searched item does exit find pairing match
-        else {  
+        else {
           //using UID of brunch item, list all associated pairings and put into array
           $scope.pairingList.$loaded(
-            function() {  
+            function() {
               for (var i = 0; i < $scope.pairingList.length; i++) {
                 if ($scope.pairingList[i].boozeItem == $scope.boozeItemID) {
-                  $scope.foundFoodPairings.push($scope.pairingList[i]);            
+                  $scope.foundFoodPairings.push($scope.pairingList[i]);
                 };
               };
-           
-              
+
+
               //get UIDs of all the drinks that pair with brunch item
               for (var i = 0; i < $scope.foundFoodPairings.length; i++) {
                 $scope.foodMatches.push($scope.foundFoodPairings[i].brunchItem);
               };
-           
+
 
               // get the information for all the drinks that pair with brunch item
               $scope.brunchList.$loaded(
-                function() {  
+                function() {
                   for (i = 0; i < $scope.foodMatches.length; i++) {
                     for (j = 0; j < $scope.brunchList.length; j++){
-                      if ($scope.foodMatches[i] == $scope.brunchList[j]["$id"]) {               
+                      if ($scope.foodMatches[i] == $scope.brunchList[j]["$id"]) {
                         $scope.thePairedFoods.push($scope.brunchList[j]);
                       }
                     }
@@ -147,54 +146,58 @@ brunch.controller('HomeCtrl', ['$scope', 'Arrays', '$location', '$anchorScroll',
                 }
               )
               return $scope.show = true;
-
+              return $scope.showRecipe = true;
             }
           )
         }
       }
-    ); 
+    );
   };
-
 
   $scope.searchBrunchAndBooze = function(userInput){
-    //if user input is in booze list run searchBooze
-    //if user input is in brunch list run searchBrunch
-    //else show not found message
+    var doesExist = false;
 
-    $scope.searchBooze(userInput);
-    $scope.searchBrunch(userInput);
-    console.log($scope.boozeDoesExist);
+        for (var i = 0; i < $scope.brunchList.length; i++) {
+          for (var j = 0; j < $scope.boozeList.length; j++) {
+            if ($scope.brunchList[i].name.toLowerCase() == userInput.toLowerCase()) {
+              doesExist = true;
+            } else if ($scope.boozeList[j].name.toLowerCase() == userInput.toLowerCase()) {
+                doesExist = true;
+            }
+          } //second for closing
+        }; //first for closing
+        if (doesExist == false) {
+          ngDialog.open({
+                  template: '<div class="modal-header">\
+                             <h3 class="modal-title">Oh no!</h3>\
+                           </div>\
+                           <div class="modal-body">\
+                             <p>We do not have a pairing for that. Feel free to search again!</p>\
+                           </div>\
+                           <div class="modal-footer">\
+                             <button class="btn btn-primary modal-button" ng-click="closeThisDialog()">Search Again</button>\
+                           </div>',
+               className: 'ngdialog-theme-default modal',
+               plain: true
+             });
+        } else {
+    console.log(doesExist);
+  }
 
-    while ($scope.boozeDoesNotExist && $scope.brunchDoesNotExist){
-       ngDialog.open({  
-               template: '<div class="modal-header">\
-                          <h3 class="modal-title">Oh no!</h3>\
-                        </div>\
-                        <div class="modal-body">\
-                          <p>We do not have a pairing for that. Feel free to search again!</p>\
-                        </div>\
-                        <div class="modal-footer">\
-                          <button class="btn btn-primary modal-button" ng-click="closeThisDialog()">Search Again</button>\
-                        </div>',
-            className: 'ngdialog-theme-default modal',            
-            plain: true
-          });
-     }
-  };
-
-  
+};
 
   $scope.showSelectedRecipe = function(pairing) {
-    $scope.selectedPairing = pairing;          
+    $scope.selectedPairing = pairing;
     return $scope.showRecipe = false;
   };
 
    $scope.searchAgain = function() {
     return $scope.show = false,
            $scope.showRecipe = true;
+           $scope.itemName = " ";
   };
 
-  
+
 }]);
 
 
@@ -257,14 +260,5 @@ brunch.factory('Arrays', ['$firebaseArray',  function($firebaseArray){
           category: category
         });
        }
-    }  
+    }
 }]);
-
-
-
-
-
-
-
-
-

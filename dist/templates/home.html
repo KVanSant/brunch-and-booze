@@ -1,12 +1,12 @@
  <div ng-hide="show" ng-show"showRecipe" class="home">
-    <div class="heading"> 
+    <div class="heading">
       <h1>Brunch & Booze</h1>
       <div class="about">
         <p>Find food and drink pairings for the tastiest brunch ever!<span> Search for a food or drink item to see a list of suggested pairings.</span></p>
       </div>
     </div>
     <div class="container">
-        <form ng-submit="searchBrunchAndBooze(itemName)">
+        <form ng-submit="searchBrunch(itemName); searchBooze(itemName);">
           <input type="text" class="item-input search" ng-model="itemName" placeholder="food or drink name...">
           <button class="find search">Find Pairings</button>
         </form>
@@ -51,7 +51,7 @@
           <p class="instructions">{{selectedPairing.instructions}}</p>
           <p class="credits">Recipe from: <a href="{{selectedPairing.credits}}">{{selectedPairing.credits}}</a></p>
         </div>
-      </div> 
+      </div>
   </div>
 
 
@@ -59,6 +59,3 @@
   <div class="wrapper">
     <a ng-show="show" ng-click="searchAgain()" class="searchAgain">Search again?</a>
   </div>
-
-
-
