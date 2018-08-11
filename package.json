@@ -9,7 +9,7 @@
   "author": "Kristopher Van Sant",
   "license": "ISC",
   "dependencies": {
-    "hapi ~> 11.1.3",
+    "hapi ~> 11.1.3"
     "path": "^0.4.9"
   },
   "devDependencies": {
